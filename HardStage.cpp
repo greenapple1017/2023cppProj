@@ -3,9 +3,9 @@
 #include <string>
 
 bool HardStage::playStage() {
+    std::cout << "This is a Hard Stage. This stage will ask you about advanced features of C++, what we have learned after the midterm exam. You have three hints for each question and when you spend all your hint, you'll get a zero point to that question\n";
     for (auto &q : questions) {
         q.resetHintIndex();  //Reset hints for the new question
-
         bool questionAnsweredCorrectly = false;
         while (!questionAnsweredCorrectly) {  // Loop until the answer is correct
             q.displayQuestion();
@@ -14,13 +14,27 @@ bool HardStage::playStage() {
 
             if (q.checkAnswer(answer)) {
                 std::cout << "Answer is correct! Move to the next question.\n";
-                questionAnsweredCorrectly = true; // Exit the loop and go to next question
+                score += 2;
+                questionAnsweredCorrectly = true; 
             } else {
-                std::string detailedHint = q.getDetailedHint();
-                std::cout << "Wrong answer. Hint: " << detailedHint << "\n";
+                if (q.hasMoreHints()) { 
+                    std::string detailedHint = q.getDetailedHint();
+                    std::cout << "Wrong answer. Hint: " << detailedHint << "\n";
+                } else {
+                    std::cout << "No more hints available. Moving to the next question.\n";
+                    break; // Exit the loop and move to the next question
+                }
             }
+
         }
     }
-    std::cout << "Hard stage completed!!!\n";
-    return true;
+
+   if (score >= static_cast<int>(questions.size()) * 2 / 2) {
+       std::cout << "You pass the advanced C++ OOP course.\nYour score is " << (score*100)/(questions.size() * 2) << "\n";
+       return true;
+   } else {
+       std::cout << "************F************\n";
+       return false;
+   }
+
 }

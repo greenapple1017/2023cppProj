@@ -18,6 +18,7 @@ public:
     std::string provideHint();
     std::string getDetailedHint();
     void resetHintIndex();
+    bool hasMoreHints() const;
 };
 
 #endif // QUESTION_H

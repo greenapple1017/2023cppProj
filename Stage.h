@@ -8,10 +8,13 @@
 class Stage {
 protected:
     std::vector<Question> questions;
+    int score;
 
 public:
-    Stage() {} 
+    Stage() : score(0) {}
     Stage(const std::vector<Question> &questions);
+    virtual int getScore() const = 0;
+    virtual int maxScore() const = 0;
     virtual bool playStage() = 0;
     virtual ~Stage() {}
 };

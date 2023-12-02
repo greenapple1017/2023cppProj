@@ -47,10 +47,14 @@ bool TournamentStage::playStage() {
 
     std::cout << "The final professor is: " << professors[0] << "\n";
 
-    if (professors[0] != finalProfessor) {
-        std::cout << "\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!YOU ARE F!!!!!!!!!!!!!!!!!!!!!!!!\n";
-        std::exit(EXIT_FAILURE);
+    if (professors[0] == finalProfessor) {
+        score += 10;  
+        return true;
     }
 
-    return true; 
+    return false;
 }
+
+
+
+

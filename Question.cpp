@@ -26,6 +26,10 @@ void Question::resetHintIndex() {
     hintIndex = 0;  // Reset hintIndex when a new question starts
 }
 
+bool Question::hasMoreHints() const {
+    return hintIndex < static_cast<int>(hints.size());
+}
+
 
 std::string Question::getDetailedHint() {
     if (hintIndex >= static_cast<int>(hints.size())) {
