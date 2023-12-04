@@ -9,7 +9,10 @@ class Game {
     std::vector<std::shared_ptr<Stage>> stages;
 
 public:
+    // Add stages
     void addStage(const std::shared_ptr<Stage> &stage);
+    
+    // Play the game 
     void play();
 };
 
