@@ -5,6 +5,14 @@
 TournamentStage::TournamentStage(const std::vector<std::string> &professors, const std::string &finalProfessor)
     : Stage(), professors(professors), finalProfessor(finalProfessor) {}
 
+int TournamentStage::getScore() const {
+    return score * 2;
+}
+
+int TournamentStage::maxScore() const {
+    return 1 * 2;
+}
+
 void TournamentStage::presentChoices(const std::vector<std::string> &choices, std::string &picked) {
     std::cout << "Choose a professor:\n";
     for (size_t i = 0; i < choices.size(); ++i) {
@@ -48,7 +56,7 @@ bool TournamentStage::playStage() {
     std::cout << "The final professor is: " << professors[0] << "\n";
 
     if (professors[0] == finalProfessor) {
-        score += 10;  
+        score += 1;  
         return true;
     }
 

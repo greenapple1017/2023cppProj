@@ -6,11 +6,11 @@
 HardStage::HardStage(const std::vector<Question> &questions) : Stage(questions) {}
 
 int HardStage::getScore() const {
-    return score * 2;
+    return score * 5;
 }
 
 int HardStage::maxScore() const {
-    return questions.size() * 2 * 5;
+    return questions.size() * 5;
 }
 
 
@@ -26,7 +26,7 @@ bool HardStage::playStage() {
 
             if (q.checkAnswer(answer)) {
                 std::cout << "Answer is correct! Move to the next question.\n";
-                score += 2;
+                score += 1;
                 questionAnsweredCorrectly = true; 
             } else {
                 if (q.hasMoreHints()) { 
@@ -41,8 +41,8 @@ bool HardStage::playStage() {
         }
     }
 
-   if (score >= static_cast<int>(questions.size()) * 2 / 2) {
-       std::cout << "You pass the advanced C++ OOP course.\nYour score is " << (score*100)/(questions.size() * 2) << "\n";
+   if (score >= static_cast<int>(questions.size()) / 2) {
+       std::cout << "You pass the advanced C++ OOP course.\nYour score is " << (score*100)/(questions.size()) << "\n";
        return true;
    } else {
        std::cout << "************F************\n";

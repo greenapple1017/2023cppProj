@@ -19,4 +19,4 @@ public:
     virtual ~Stage() {}
 };
 
-#endif 
+#endif //STAGE_H

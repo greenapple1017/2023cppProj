@@ -11,4 +11,4 @@ public:
     int maxScore() const override; 
 };
 
-#endif 
+#endif //HARDSTAGE_H 

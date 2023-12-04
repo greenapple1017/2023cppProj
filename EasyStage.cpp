@@ -5,13 +5,12 @@
 EasyStage::EasyStage(const std::vector<Question> &questions) : Stage(questions) {}
 
 int EasyStage::getScore() const {
-    return score * 2;
+    return score * 3;
 }
 
 int EasyStage::maxScore() const {
-    return score * 2 * 5;
+    return questions.size() * 3;
 }
-
 
 bool EasyStage::playStage() {
     std::cout << "This is an Easy Stage. You have 5 hints for each question. Also, You will fail this stage when you got a score below than 25 percent.\n";
@@ -34,8 +33,7 @@ bool EasyStage::playStage() {
          }
      }
 
-
-    if (score >= static_cast<int>(questions.size() / 4)) {
+    if (score >= static_cast<int>(questions.size() / 2)) {
         std::cout << "You pass the basic C review course.\nYour score is " << (score*100)/questions.size() << "\n";
         return true;
     } else {

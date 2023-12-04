@@ -12,7 +12,6 @@ class Question {
 
 public:
     Question(const std::string &question, const std::string &answer, const std::vector<std::string> &hints);
-
     void displayQuestion() const;
     bool checkAnswer(const std::string &userAnswer) const;
     std::string provideHint();
