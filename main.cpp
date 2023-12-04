@@ -7,15 +7,21 @@
 int main() {
     Game quizGame;
 
-   quizGame.addStage(std::make_shared<EasyStage>(std::vector<Question>{
-        Question("Who is the best professor?", "Mr.Hong", {"Hardware", "Software", "handsome"})
+    // Easy Stage
+    // Basic C review (Week1 ~ Week6)
+    // Rather than using 'Stage *easyStage = new EasyStage(QuestionsVector)', use std::shared_ptr template
+    quizGame.addStage(std::make_shared<EasyStage>(std::vector<Question>{
+        Question("Who is the best professor?", "Mr.Hong", {"Hardware", "Software", "Handsome", "Personality", "Hong"})
     }));
 
+    // Hard Stage
+    // Advanced C++ features (Week7 ~ Week 14)
     quizGame.addStage(std::make_shared<HardStage>(std::vector<Question>{
     Question("What is the use of the 'new' keyword in C++?", "A", {"Dynamic", "Heap", "Pointer"}),
     Question("What is the principle of OOP that C++ supports?", "B", {"Class", "Object", "Hierarchy"}),
 }));
 
+    // Tournament Stage
     std::vector<std::string> professors = {"김소영 교수님", "신동군 교수님", "이윤명 교수님", "한태희 교수님", "황재현 교수님", "김정래 교수님", "전재욱 교수님", "홍석인 교수님"};
     std::string finalProfessor = "홍석인 교수님";
     quizGame.addStage(std::make_shared<TournamentStage>(professors, finalProfessor));

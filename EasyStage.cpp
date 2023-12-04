@@ -2,6 +2,17 @@
 #include <iostream>
 #include <string>
 
+EasyStage::EasyStage(const std::vector<Question> &questions) : Stage(questions) {}
+
+int EasyStage::getScore() const {
+    return score * 2;
+}
+
+int EasyStage::maxScore() const {
+    return score * 2 * 5;
+}
+
+
 bool EasyStage::playStage() {
     std::cout << "This is an Easy Stage. You have 5 hints for each question. Also, You will fail this stage when you got a score below than 25 percent.\n";
      for (auto &q : questions) {

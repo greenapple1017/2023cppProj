@@ -2,6 +2,18 @@
 #include <iostream>
 #include <string>
 
+
+HardStage::HardStage(const std::vector<Question> &questions) : Stage(questions) {}
+
+int HardStage::getScore() const {
+    return score * 2;
+}
+
+int HardStage::maxScore() const {
+    return questions.size() * 2 * 5;
+}
+
+
 bool HardStage::playStage() {
     std::cout << "This is a Hard Stage. This stage will ask you about advanced features of C++, what we have learned after the midterm exam. You have three hints for each question and when you spend all your hint, you'll get a zero point to that question\n";
     for (auto &q : questions) {

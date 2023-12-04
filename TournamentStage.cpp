@@ -3,7 +3,7 @@
 #include <cstdlib>
 
 TournamentStage::TournamentStage(const std::vector<std::string> &professors, const std::string &finalProfessor)
-    : Stage(std::vector<Question>()), professors(professors), finalProfessor(finalProfessor) {}
+    : Stage(), professors(professors), finalProfessor(finalProfessor) {}
 
 void TournamentStage::presentChoices(const std::vector<std::string> &choices, std::string &picked) {
     std::cout << "Choose a professor:\n";

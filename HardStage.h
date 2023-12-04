@@ -5,10 +5,10 @@
 
 class HardStage : public Stage {
 public:
-    using Stage::Stage; 
+    HardStage(const std::vector<Question> &questions);
     bool playStage() override;
-    int getScore() const override { return score * 2; }
-    int maxScore() const override { return questions.size() * 2 * 5; } // 2 points per question, 5x weighting
+    int getScore() const override; 
+    int maxScore() const override; 
 };
 
 #endif 

@@ -5,10 +5,10 @@
 
 class EasyStage : public Stage {
 public:
-    using Stage::Stage;
+    EasyStage(const std::vector<Question> &questions);
     bool playStage() override;
-    int getScore() const override { return score * 3; } 
-    int maxScore() const override { return questions.size() * 3; }
+    int getScore() const override; 
+    int maxScore() const override;
 };
 
 #endif // EASYSTAGE_H
